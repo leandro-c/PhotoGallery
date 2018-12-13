@@ -41,7 +41,7 @@ class PhotoGrid extends Component {
         //console.log('get phothos', this.props.photos)
         this.state = {
             items: [],
-            visible: 2,
+            visible: 6,
             error: false
             };
             this.loadMore = this.loadMore.bind(this);    
@@ -56,7 +56,7 @@ class PhotoGrid extends Component {
         return this.props.photos.slice(0, this.state.visible).map((photo) => {
             //const { classes } = props;
             return (
-                <GridItem photo={photo}/>
+                <GridItem key={photo.id} photo={photo}/>
             );
         });
     }
