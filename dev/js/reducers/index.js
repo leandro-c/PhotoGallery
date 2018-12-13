@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import UsersReducer from './reducer-users';
+import PhotosReducer from './reducer-photos';
 
 const allReducers = combineReducers({
-    users: UsersReducer
+    photos: PhotosReducer
 });
 
 export default allReducers
