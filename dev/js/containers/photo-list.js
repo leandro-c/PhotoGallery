@@ -37,7 +37,7 @@ class UserList extends Component {
     render() {
         return (
             <div>
-                <h1>PHOTOS FOR MEDIAMONKS!</h1>
+                <h1>PHOTOS FOR !</h1>
                 <ul>
                     {this.renderList()}
                 </ul>
