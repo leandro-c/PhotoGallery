@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-
+//Material-ui
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import Grid from '@material-ui/core/Grid'
 //Reducers
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { getPhotos } from '../actions/index'
 //Components
 import GridItem from '../components/grid-item'
+import MediaCard from '../components/mediaCard'
 //lib
-//import InfiniteScroll from 'react-infinite-scroller';
-//import VirtualList from 'react-virtual-list';
-import InfiniteScroll from 'react-infinite-scroller';
+import Button from '@material-ui/core/Button';
 
 const styles = theme => ({
         root: {
@@ -41,7 +41,7 @@ class PhotoGrid extends Component {
         //console.log('get phothos', this.props.photos)
         this.state = {
             items: [],
-            visible: 6,
+            visible: 8,
             error: false
             };
             this.loadMore = this.loadMore.bind(this);    
@@ -63,23 +63,29 @@ class PhotoGrid extends Component {
     
     render() {
         return (
-            <div>
+            <div style={{width: '100%',display: 'flex',flexDirection: 'column', maxWidth:1200,margin:'0 auto' }}>
+                
                 <div>
                     <h1>PHOTOS FOR!</h1>
                     <GridList cellHeight={100} >
                         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-                        <ListSubheader component="div">Gallery</ListSubheader>
-                    </GridListTile>
+                            <ListSubheader component="div">Gallery</ListSubheader>
+                        </GridListTile>
                         {
                             this.renderList()
                         }
                     </GridList>
                 </div>
-                {this.state.visible < this.props.photos.length && (
-                <button onClick={this.loadMore} type="button" className="load-more">
-                    Load more
-                </button>
-                )}
+                <div>
+                    {this.state.visible < this.props.photos.length && (
+                        <div style={{display:'flex', justifyContent:'center',alignItems:'center',width:'100%'}}>
+                            <Button size="small" color="primary" className="load-more" onClick={this.loadMore}>
+                                Load more
+                            </Button>
+                        </div>
+                    )}
+                </div>
+                
             </div>
         );
     }

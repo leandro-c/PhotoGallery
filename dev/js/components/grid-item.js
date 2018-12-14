@@ -12,23 +12,19 @@ export default class GridItem extends Component {
       const {id, title, url, thumbnailUrl}= this.props.photo
       //console.log('photo',this.props)
     return (
-      <div>
-            <div >
-                
-                    <GridListTile key={id}>
-                        <img src={thumbnailUrl} alt={title} />
-                        <GridListTileBar
-                        title={title}
-                        subtitle={<span>by: {url}</span>}
-                        actionIcon={
-                            <IconButton >
-                            <InfoIcon />
-                            </IconButton>
-                        }
-                        />
-                    </GridListTile>
-                
-            </div>
+      <div >
+          <GridListTile key={id}>
+              <img src={thumbnailUrl} alt={title} />
+              <GridListTileBar
+              title={title}
+              subtitle={<span>by: {url}</span>}
+              actionIcon={
+                  <IconButton >
+                  <InfoIcon />
+                  </IconButton>
+              }
+              />
+          </GridListTile>
       </div>
     )
   }
